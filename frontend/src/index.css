@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background Colors */
+    --bg-primary: #0a0f0d;
+    --bg-secondary: #1a1f1d;
+    --bg-tertiary: #151a18;
+    --bg-widget-dark: #0d1411;
+    --bg-widget-light: #e8e5d8;
+    --bg-hover: rgba(255, 255, 255, 0.05);
+
+    /* Green Energy Theme Colors */
+    --green-primary: #2d4a3e;
+    --green-secondary: #3d5f4e;
+    --green-accent: #4a7a5f;
+    --green-light: rgba(77, 122, 95, 0.2);
+    --green-glow: rgba(77, 122, 95, 0.4);
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #a8b0ac;
+    --text-tertiary: #6b7470;
+    --text-label: #505854;
+    --text-dark: #0a0f0d;
+
+    /* Accent Colors */
+    --accent-blue: #3b82f6;
+    --accent-success: #10b981;
+    --accent-warning: #f59e0b;
+    --accent-error: #ef4444;
+
+    /* Chart Colors */
+    --chart-bar-fill: #ffffff;
+    --chart-bar-empty: #2a2f2d;
+    --chart-grid: rgba(255, 255, 255, 0.05);
+    --chart-highlight: #4a7a5f;
+
+    /* Border and Divider Colors */
+    --border-primary: rgba(255, 255, 255, 0.1);
+    --border-secondary: rgba(255, 255, 255, 0.05);
+    --divider: rgba(255, 255, 255, 0.08);
+
+    /* Typography */
+    --font-primary:
+      "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+}

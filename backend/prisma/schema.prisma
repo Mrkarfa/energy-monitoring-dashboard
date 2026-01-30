@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String     @id @default(uuid())
+  email        String     @unique
+  passwordHash String
+  fullName     String?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  properties   Property[]
+}
+
+model Property {
+  id        String   @id @default(uuid())
+  name      String
+  address   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  devices   Device[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Device {
+  id             String          @id @default(uuid())
+  name           String
+  type           String
+  propertyId     String
+  property       Property        @relation(fields: [propertyId], references: [id])
+  energyReadings EnergyReading[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model EnergyReading {
+  id        String   @id @default(uuid())
+  value     Float
+  timestamp DateTime
+  deviceId  String
+  device    Device   @relation(fields: [deviceId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model GreenEnergySource {
+  id            String   @id @default(uuid())
+  type          String
+  capacity      Float
+  currentOutput Float
+  details       String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Recommendation {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  impact      String
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

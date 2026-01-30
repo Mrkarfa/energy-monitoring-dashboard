@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+.DS_Store
+coverage
+backend/testsprite_tests
+backend/dev.db
+backend/dev.db-journal
+test-results
